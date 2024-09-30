@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filpkart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+        .navdrop{
+        justify-content:space-between;
+        }
+    </style>
+</head>
+<body>
+{% load static %}
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <div class="container-fluid">
+                <div class="sticky-top">
+                <a class="navbar-brand text" href="{% url 'home' %}">
+                    <img class="text-light" src="{% static 'flipkart-plus.png' %}" alt="Logo" width="159.99" height="39.99">
+                  </a>
+            </div>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search for Products,Brands and More"
+                  aria-label="Search">
+                <button class="btn bg-light" type="submit">Search</button>
+              </form>
+              <a href="{% url 'customer_support' %}">
+      <button type="button" class="btn btn-primary">
+        Customer support
+      </button>
+      </a>
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'signout' %}" class="bg-primary p-2 text-light">Logout</a>
+                {% endif %}
+            </div>
+        </nav>
+    {% block content %}
+
+    {% endblock %}
+    <div class="container-fluid">
+        <div class="row text-light bg-dark p-4 mt-3">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-3">
+                        <p class="text-secondary">ABOUT</p>
+                        <a href="#" class="text-light">Contact Us</a><br>
+                        <a href="#" class="text-light">About Us</a><br>
+                        <a href="#" class="text-light">Careers</a><br>
+                        <a href="#" class="text-light">Flipkart Stories</a><br>
+                        <a href="#" class="text-light">Press</a><br>
+                        <a href="#" class="text-light">Corporate Information</a>
+                    </div>
+                    <div class="col-3">
+                        <p class="text-secondary">GROUP COMPANIES</p>
+                        <a href="#" class="text-light">Myntra</a><br>
+                        <a href="#" class="text-light">Cleartrip</a><br>
+                        <a href="#" class="text-light">Shopsy</a>
+                    </div>
+                    <div class="col-3">
+                        <p class="text-secondary">HELP</p>
+                        <a href="#" class="text-light">Payments</a><br>
+                        <a href="#" class="text-light">Shipping</a><br>
+                        <a href="#" class="text-light">Cancellation & Returns</a><br>
+                        <a href="#" class="text-light">FAQ</a><br>
+                        <a href="#" class="text-light">Report Infringement</a>
+                    </div>
+                    <div class="col-3">
+                        <p class="text-secondary">CONSUMER POLICY</p>
+                        <a href="#" class="text-light">Cancellation & Returns</a><br>
+                        <a href="#" class="text-light">Terms of Use</a><br>
+                        <a href="#" class="text-light">Security</a><br>
+                        <a href="#" class="text-light">Privacy</a><br>
+                        <a href="#" class="text-light">Sitemap</a><br>
+                        <a href="#" class="text-light">Grievance Redressal</a><br>
+                        <a href="#" class="text-light">EPR Compliance</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-6">
+                        <p class="text-secondary">Mail Us:</p>
+                        <p class="text-light">Flipkart Internet Private Limited,
+                            Buildings Alyssa, Begonia & Clove Embassy Tech Village,
+                            Outer Ring Road, Devarabeesanahalli Village,
+                            Bengaluru, 560103, Karnataka, India</p>
+                        <p class="text-light">Social:
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-facebook mx-1" viewBox="0 0 16 16">
+                                <path
+                                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-twitter-x mx-1" viewBox="0 0 16 16">
+                                <path
+                                    d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-youtube mx-1" viewBox="0 0 16 16">
+                                <path
+                                    d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
+                            </svg>
+                        </p>
+                    </div>
+                    <div class="col-6 ">
+                        <p class="text-secondary">Registered Office Address:</p>
+                        <p class="text-light">Buildings Alyssa, Begonia & Clove Embassy Tech Village
+                            Outer Ring Road, Devarabeesanahalli Village,
+                            Bengaluru, 560103, Karnataka, India
+                            <br>CIN: U51109KA2012PTC066107
+                            <br>Telephone: 044-45614700/044-67415800
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

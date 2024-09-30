@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <title>Flipkart|Home</title>
+  <style>
+    .img-fluid {
+      object-fit: contain;
+      height: 200px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+{% load static %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <nav class="navbar bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img
+          src="https://static-assets-web.flixcart.com/batman-returns/batman-returns/p/images/fkheaderlogo_exploreplus-44005d.svg"
+          alt="Logo" width="159.99" height="39.99">
+      </a>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search for Products,Brands and More"
+          aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      <a href="login">
+      <button type="button" class="btn btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle"
+          viewBox="0 0 16 16">
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+          <path fill-rule="evenodd"
+            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+        </svg>
+        Login
+      </button>
+      </a>
+      <a href="{% url 'customer_support' %}">
+      <button type="button" class="btn btn-primary">
+        Customer support
+      </button>
+      </a>
+
+
+
+      <span class="seller-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-shop-window"
+          viewBox="0 0 16 16">
+          <path
+            d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.37 2.37 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0M1.5 8.5A.5.5 0 0 1 2 9v6h12V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5m2 .5a.5.5 0 0 1 .5.5V13h8V9.5a.5.5 0 0 1 1 0V13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5a.5.5 0 0 1 .5-.5" />
+        </svg>
+        <a href="{% url 'ssignup' %}" style="text-decoration:none;">Become a seller </a>
+      </span>
+    </div>
+  </nav>
+
+
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <div class="d-flex flex-column align-items-center">
+          <img src="https://rukminim1.flixcart.com/flap/70/70/image/29327f40e9c4d26b.png?q=100" alt="Logo" width="63.99"
+            height="63.99" class="d-inline-block">
+          <span>Grocery</span>
+        </div>
+      </a>
+      <a class="navbar-brand" href="products/category/1/">
+        <div class="d-flex flex-column align-items-center">
+          <img src="https://rukminim1.flixcart.com/flap/70/70/image/22fddf3c7da4c4f4.png?q=100" alt="Logo" width="63.99"
+            height="63.99" class="d-inline-block">
+          <span>Mobiles</span>
+        </div>
+      </a>
+      <div class="navbar">
+        <div class="d-flex flex-column align-items-center">
+          <img src="https://rukminim1.flixcart.com/fk-p-flap/70/70/image/0d75b34f7d8fbcb3.png?q=100" alt="Logo"
+            width="63.99" height="63.99" class="d-inline-block">
+          <span class="dropdown-toggle" data-bs-toggle="dropdown">Fashion</span>
+          <div class="dropdown-menu">
+            <ul style="list-style: none;" class="dropdown">
+              <li><a class="dropdown-item" href="products/category/9/">Kids Wear</a></li>
+              <li><a class="dropdown-item" href="products/category/8/">Women Wear</a></li>
+              <li><a class="dropdown-item" href="products/category/7/">Men's Wear</a></li>
+              <li><a class="dropdown-item" href="products/category/10/">Footwears</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="navbar">
+        <div class="d-flex flex-column align-items-center">
+          <img src="https://rukminim1.flixcart.com/flap/70/70/image/69c6589653afdb9a.png?q=100" alt="Logo" width="63.99"
+            height="63.99" class="d-inline-block">
+          <span class="dropdown-toggle" data-bs-toggle="dropdown">Electronics</span>
+          <div class="dropdown-menu">
+            <ul style="list-style: none;" class="dropdown">
+              <li><a class="dropdown-item" href="products/category/2/">Laptop & Desktop</a></li>
+              <li><a class="dropdown-item" href="#">Wearable</a></li>
+              <li><a class="dropdown-item" href="products/category/17/">Storage</a></li>
+              <li><a class="dropdown-item" href="#">Mobile Accessory</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="navbar">
+        <div class="d-flex flex-column align-items-center">
+          <img src="https://rukminim1.flixcart.com/flap/70/70/image/ab7e2b022a4587dd.jpg?q=100" alt="Logo" width="63.99"
+            height="63.99" class="d-inline-block">
+          <span class="dropdown-toggle" data-bs-toggle="dropdown">Home &<br>Furniture</span>
+          <div class="dropdown-menu">
+            <ul style="list-style: none;" class="dropdown">
+              <li><a class="dropdown-item" href="#">Home Decor</a></li>
+              <li><a class="dropdown-item" href="products/category/11/">Kitchen & Dining</a></li>
+              <li><a class="dropdown-item" href="products/category/13/">Bedroom Furniture</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <a class="navbar-brand" href="products/category/12/">
+        <div class="d-flex flex-column align-items-center">
+          <img src="https://rukminim1.flixcart.com/fk-p-flap/70/70/image/0139228b2f7eb413.jpg?q=100" alt="Logo"
+            width="63.99" height="63.99" class="d-inline-block">
+          <span>Appliances</span>
+        </div>
+      </a>
+      <a class="navbar-brand" href="#">
+        <div class="d-flex flex-column align-items-center">
+          <img src="https://rukminim1.flixcart.com/flap/70/70/image/71050627a56b4693.png?q=100" alt="Logo" width="63.99"
+            height="63.99" class="d-inline-block">
+          <span>Flight<br>Booking</span>
+        </div>
+      </a>
+      <a class="navbar-brand" href="products/category/18/">
+        <div class="d-flex flex-column align-items-center">
+          <img src="{% static 'teddy1.png' %}" alt="Logo" width="63.99" height="63.99"
+            class="d-inline-block">
+          <span>Beauty,Toys &<br>More</span>
+        </div>
+      </a>
+      <a class="navbar-brand" href="#">
+        <div class="d-flex flex-column align-items-center">
+          <img src="{% static 'bike.png' %}" alt="Logo" width="63.99" height="63.99"
+            class="d-inline-block">
+          <span>Two <br>Wheelers</span>
+        </div>
+      </a>
+    </div>
+  </nav>
+  <br>
+  <div>
+    <img src="https://rukminim1.flixcart.com/fk-p-flap/1600/230/image/6cde8991db89ebac.jpg?q=20" class="img-fluid"
+      alt="bigindia">
+  </div>
+
+  <div id="carouselExampleAutoplaying" class="carousel slide mt-1" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+        aria-current="true"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/47756118b7ebd061.jpg?q=20"
+          class="d-block w-684.4 h=113.52" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/cbe7e58c9b9735ec.jpg?q=20"
+          class="d-block  w-684.4 h=113.52" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/61775218f4487fe8.jpg?q=20"
+          class="d-block  w-684.4 h=113.52" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/d9290fb51138d286.png?q=20"
+          class="d-block  w-684.4 h=113.52" alt="...">
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+  <h3 align="center">Best of Electronics</h3>
+  <div class="row">
+    <div class="col-md-2">
+      <div class=" card  h-100">
+        <img src="{% static 'images/bud.png' %}" class=" img-fluid" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Best Truewireless</h5>
+          <p class="card-text text-success">Grab Now</p>
+          <a href="products/category/16/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/speaker.png' %}" class=" img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Best Selling Speaker</h5>
+          <p class="card-text text-success">From ₹499</p>
+          <a href="products/category/16/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card h-100">
+        <img src="{% static 'images/camera.png' %}" class=" img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Top Mirrorless Cameras</h5>
+          <p class="card-text text-success">Shop Now!</p>
+          <a href="products/category/1/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/printer.png' %}" class=" img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Printers</h5>
+          <p class="card-text text-success">From ₹2,336</p>
+          <a href="products/category/3/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="card h-100">
+        <img src="{% static 'images/shaver.png' %}" class="img-fluid" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Best of Shavers</h5>
+          <p class="card-text text-success">From ₹1,649</p>
+          <a href="products/category/16/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/gopro.png' %}" class=" img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Projector</h5>
+          <p class="card-text text-success">From ₹6,990</p>
+          <a href="#" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <h3 class="my-3" align="center">Toys & more</h3>
+  <div class="row">
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/1pens.png' %}" class=" img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Selling Station...</h5>
+          <p class="card-text text-success">From ₹49</p>
+          <a href="products/category/19/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/1car.png' %}" class="img-fluid" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Remote Contro Toys</h5>
+          <p class="card-text text-success">Upto 80% 0ff</p>
+          <a href="products/category/19/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/1cycle.png' %}" class="img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Non-Geared Cycles</h5>
+          <p class="card-text text-success">Upto 40% off</p>
+          <a href="products/category/19/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/1doll.png' %}" class="img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Soft Toys</h5>
+          <p class="card-text text-success">Upto 70% off</p>
+          <a href="products/category/19/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/1batman.png' %}" class="img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Best of Action Toys</h5>
+          <p class="card-text text-success">Up to 70% off</p>
+          <a href="products/category/19/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/1gym.png' %}" class="img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Gym Essentials</h5>
+          <p class="card-text text-success">From ₹139</p>
+          <a href="products/category/19/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class="my-3" align="center">Groceries & more</h3>
+  <div class="row">
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/21.png' %}" class=" img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Dry Fruits</h5>
+          <p class="card-text text-success">Up to 40% off</p>
+          <a href="products/category/6/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/22.png' %}" class="img-fluid" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Grains</h5>
+          <p class="card-text text-success">Upto 30% 0ff</p>
+          <a href="products/category/6/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/23.png' %}" class="img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Coffee Powder</h5>
+          <p class="card-text text-success">Upto 80% off</p>
+          <a href="products/category/6/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/24.png' %}" class="img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Snacks</h5>
+          <p class="card-text text-success">Upto 50% off</p>
+          <a href="products/category/5/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/25.png' %}" class="img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Breakfast Cereal</h5>
+          <p class="card-text text-success">Up to 75% off</p>
+          <a href="products/category/5/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/26.png' %}" class="img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Biscuits</h5>
+          <p class="card-text text-success">Up to 70% off</p>
+          <a href="products/category/5/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class="my-3" align="center">Best Gadgets & Appliances</h3>
+  <div class="row">
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/camera.png' %}" class=" img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Cameras</h5>
+          <p class="card-text text-success">Min. 50% off</p>
+          <a href="#" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/mobile.png' %}" class=" img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Mobiles</h5>
+          <p class="card-text text-success">Min. 50% off</p>
+          <a href="products/category/1/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/lap.png' %}" class=" img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Laptops</h5>
+          <p class="card-text text-success">Min. 30% off</p>
+          <a href="products/category/2/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/speaker.png' %}" class=" img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Home Audio</h5>
+          <p class="card-text text-success">Min. 20% off</p>
+          <a href="#" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/light.png' %}" class=" img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Smart Lighting</h5>
+          <p class="card-text text-success">Min. 35% off</p>
+          <a href="#" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/powerbank.png' %}" class=" img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Power Banks</h5>
+          <p class="card-text text-success">Min. 15% off</p>
+          <a href="#" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h3 class="my-3" align="center">Fashion's Top Deals</h3>
+  <div class="row">
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/kurtas.png' %}" class=" img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Men Kurtas</h5>
+          <p class="card-text text-success">Min. 30% off</p>
+          <a href="products/category/7/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/shoes.png' %}" class="img-fluid" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Men's Shoes</h5>
+          <p class="card-text text-success">Min. 50% 0ff</p>
+          <a href="products/category/10/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/Wkurtas.png' %}" class="img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Women's Kurtas</h5>
+          <p class="card-text text-success">Min. 25% off</p>
+          <a href="products/category/8/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/Sarees.png' %}" class="img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Women's Sarees</h5>
+          <p class="card-text text-success">Special Offer</p>
+          <a href="products/category/8/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/jackets.png' %}" class="img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Men's Jackets</h5>
+          <p class="card-text text-success">Min. 60% off</p>
+          <a href="products/category/7/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class=" card h-100">
+        <img src="{% static 'images/kid.jpeg' %}" class="img-fluid  " alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Kids dress</h5>
+          <p class="card-text text-success">Min. 70% off</p>
+          <a href="products/category/9/" class="btn btn-primary">View More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="container-fluid mt-2">
+    <div class="row text-light bg-dark pb-4">
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-3">
+            <p class="text-secondary">ABOUT</p>
+            <a href="#" class="text-light">Contact Us</a><br>
+            <a href="#" class="text-light">About Us</a><br>
+            <a href="#" class="text-light">Careers</a><br>
+            <a href="#" class="text-light">Flipkart Stories</a><br>
+            <a href="#" class="text-light">Press</a><br>
+            <a href="#" class="text-light">Corporate Information</a>
+          </div>
+          <div class="col-3">
+            <p class="text-secondary">GROUP COMPANIES</p>
+            <a href="#" class="text-light">Myntra</a><br>
+            <a href="#" class="text-light">Cleartrip</a><br>
+            <a href="#" class="text-light">Shopsy</a>
+          </div>
+          <div class="col-3">
+            <p class="text-secondary">HELP</p>
+            <a href="#" class="text-light">Payments</a><br>
+            <a href="#" class="text-light">Shipping</a><br>
+            <a href="#" class="text-light">Cancellation & Returns</a><br>
+            <a href="#" class="text-light">FAQ</a><br>
+            <a href="#" class="text-light">Report Infringement</a>
+          </div>
+          <div class="col-3">
+            <p class="text-secondary">CONSUMER POLICY</p>
+            <a href="#" class="text-light">Cancellation & Returns</a><br>
+            <a href="#" class="text-light">Terms of Use</a><br>
+            <a href="#" class="text-light">Security</a><br>
+            <a href="#" class="text-light">Privacy</a><br>
+            <a href="#" class="text-light">Sitemap</a><br>
+            <a href="#" class="text-light">Grievance Redressal</a><br>
+            <a href="#" class="text-light">EPR Compliance</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-6">
+            <p class="text-secondary">Mail Us:</p>
+            <p class="text-light">Flipkart Internet Private Limited,
+              Buildings Alyssa, Begonia & Clove Embassy Tech Village,
+              Outer Ring Road, Devarabeesanahalli Village,
+              Bengaluru, 560103, Karnataka, India</p>
+            <p class="text-light">Social:
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-facebook mx-1" viewBox="0 0 16 16">
+                <path
+                  d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-twitter-x mx-1" viewBox="0 0 16 16">
+                <path
+                  d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-youtube mx-1" viewBox="0 0 16 16">
+                <path
+                  d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.01 2.01 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.01 2.01 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31 31 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.01 2.01 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A100 100 0 0 1 7.858 2zM6.4 5.209v4.818l4.157-2.408z" />
+              </svg>
+            </p>
+          </div>
+          <div class="col-6 ">
+            <p class="text-secondary">Registered Office Address:</p>
+            <p class="text-light">Buildings Alyssa, Begonia & Clove Embassy Tech Village
+              Outer Ring Road, Devarabeesanahalli Village,
+              Bengaluru, 560103, Karnataka, India
+              <br>CIN: U51109KA2012PTC066107
+              <br>Telephone: 044-45614700/044-67415800
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

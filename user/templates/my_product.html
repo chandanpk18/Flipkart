@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="container mt-5">
+   <div class="row align-items-center">
+        <div class="col">
+            <h1 class="mb-4"> MY Products</h1>
+        </div>
+        <div class="col text-end">
+            <!-- Navigate to the seller page for adding products -->
+            <a href="{% url 'seller' %}" class="btn btn-primary">Add Products</a>
+        </div>
+    </div>
+
+    {% if products %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Discount</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Product Type</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr id="product-row-{{ product.id }}">
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.discount }}%</td>
+                    <td>{{ product.category.name }}</td>
+                    <td>{{ product.product_type.name }}</td>
+                    <td>{{ product.description }}</td>
+                    <td>
+                        {% if product.image %}
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width: 100px; height: 100px;">
+                        {% else %}
+                            <p>No Image</p>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <!-- Edit Button -->
+                        <!-- Update button -->
+<button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#editModal-{{ product.id }}">Edit</button>
+
+<!-- Delete button -->
+<button class="btn btn-sm btn-danger delete-product-btn" data-product-id="{{ product.id }}">Delete</button>
+</td>
+                </tr>
+
+                <!-- Edit Modal -->
+                <div class="modal fade" id="editModal-{{ product.id }}" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form class="edit-product-form" data-product-id="{{ product.id }}">
+                                {% csrf_token %}
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editModalLabel">Edit Product</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="mb-3">
+                                        <label for="productName-{{ product.id }}" class="form-label">Product Name</label>
+                                        <input type="text" class="form-control" id="productName-{{ product.id }}" value="{{ product.name }}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="productPrice-{{ product.id }}" class="form-label">Price</label>
+                                        <input type="number" class="form-control" id="productPrice-{{ product.id }}" value="{{ product.price }}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="productDiscount-{{ product.id }}" class="form-label">Discount</label>
+                                        <input type="number" class="form-control" id="productDiscount-{{ product.id }}" value="{{ product.discount }}">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="productDescription-{{ product.id }}" class="form-label">Description</label>
+                                        <textarea class="form-control" id="productDescription-{{ product.id }}">{{ product.description }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary save-product-btn">Save Changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="text-muted">You haven't added any products yet.</p>
+    {% endif %}
+</div>
+
+<!-- Bootstrap JS (Optional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+   // AJAX for deleting a product
+document.querySelectorAll('.delete-product-btn').forEach(function(button) {
+    button.addEventListener('click', function() {
+        const productId = this.getAttribute('data-product-id');
+        if (confirm('Are you sure you want to delete this product?')) {
+            fetch(`/product/delete/${productId}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.getElementById(`product-row-${productId}`).remove();
+                } else {
+                    alert('Failed to delete product');
+                }
+            });
+        }
+    });
+});
+
+// AJAX for updating a product
+document.querySelectorAll('.edit-product-form').forEach(function(form) {
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const productId = this.getAttribute('data-product-id');
+        const formData = new FormData();
+        formData.append('name', document.getElementById(`productName-${productId}`).value);
+        formData.append('price', document.getElementById(`productPrice-${productId}`).value);
+        formData.append('discount', document.getElementById(`productDiscount-${productId}`).value);
+        formData.append('description', document.getElementById(`productDescription-${productId}`).value);
+        formData.append('csrfmiddlewaretoken', '{{ csrf_token }}');
+
+        fetch(`/product/update/${productId}/`, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Product updated successfully');
+                location.reload();  // Refresh the page to reflect the updated data
+            } else {
+                alert('Failed to update product');
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

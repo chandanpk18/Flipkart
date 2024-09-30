@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row justify-content-center my-3">
+            <div class="col-md-3 bg-primary">
+                <h2 class="text-light text-center">Looks like you are new here</h2>
+                <p class="text-light mt-3 mb-2">
+                    signup with your email id to get started here!
+                </p>
+                <img src="{% static 'logicon.png' %}" class="img-fluid mt-5" alt="">
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100">
+                    <form class="m-2" method="post" action="usignup">
+                        {% csrf_token %}
+                        <div class="form-group m-2">
+                          <label for="name">Name</label>
+                          <br>
+                            {{ form.username }}
+                        </div>
+                      <div class="form-group m-2">
+                          <label for="email">Email address</label>
+                            {{ form.email }}
+                      </div>
+                        <div class="form-group m-2">
+                          <label for="password">Password</label>
+                        {{ form.password1 }}
+                        </div>
+                      <div class="form-group m-2">
+                          <label for="password">Confirm Password</label>
+                        {{ form.password2 }}
+                        </div>
+                        <p>By continuing, you agree to Flipkart's <a href="{% url 'condition' %}"> Terms</a> of Use and <a href="{% url 'privacy' %}">Privacy Policy.</a></p>
+                      <button type="submit" class="btn btn-primary px-5">Submit</button>
+                      </form>
+                    <p align="center" class="mt-2">Existing user <a href="{% url 'login' %}">login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

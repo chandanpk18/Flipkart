@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<style>
+ body {
+      background-image: url('{% static 'Flipkart-Logo.png' %}');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .p-4{
+
+      background-color:rgba(255,255,255,0.7);
+      }
+      </style>
+<br><br>
+  <div class="container pt-4">
+
+    <div class="col-5 shadow p-0 mx-auto">
+
+      <div class="alert alert-info">
+        <h2>Add Products</h2>
+      </div>
+
+          <div class="p-4">
+
+              <form method="post" enctype="multipart/form-data">
+
+                  {% csrf_token %}
+                  {{form.as_p}}
+
+                  <hr>
+                  <button type="submit" class="btn btn-info">Add Products</button>
+                  <a href="my_products" class="btn btn-info">View products</a>
+
+              </form>
+
+          </div>
+
+  </div>
+
+  </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#id_product_type').change(function() {
+            var productTypeId = $(this).val();  // Get the selected ProductType
+
+            if (productTypeId) {
+                $.ajax({
+                    url: "{% url 'ajax_load_categories' %}",  // URL to the view
+                    data: {
+                        'product_type_id': productTypeId
+                    },
+                    success: function(data) {
+                        var categorySelect = $('#id_category');
+                        categorySelect.empty();  // Clear the existing options
+
+                        // Add a default placeholder
+                        categorySelect.append('<option value="" selected>---------</option>');
+
+                        // Populate the category dropdown with new options
+                        $.each(data, function(key, value) {
+                            categorySelect.append('<option value="' + value.id + '">' + value.name + '</option>');
+                        });
+
+                        categorySelect.prop('disabled', false);  // Enable the category select
+                    }
+                });
+            } else {
+                $('#id_category').empty().prop('disabled', true);  // Disable if no ProductType selected
+            }
+        });
+    });
+</script>
+{% endblock %}

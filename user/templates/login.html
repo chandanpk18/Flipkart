@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row justify-content-center my-3">
+            <div class="col-md-3 bg-primary">
+                <h2 class="text-light text-center">Login</h2>
+                <p class="text-light">
+                    Get access to your Order's Whishlist and recomendation
+                </p>
+                <img src="{% static 'logicon.png' %}" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-3">
+                <div class="card h-100">
+                    <form class="m-2" method="post" action="/login">
+                        {% csrf_token %}
+                        <div class="form-group m-2">
+                          <label for="name">Name</label>
+                            <p class="mt-2">{{ form.username }}</p>
+                        </div>
+                        <div class="form-group m-2">
+                          <label for="password">Password</label>
+                        <p class="mt-2">{{ form.password }}</p>
+                        </div>
+                        <p>By continuing, you agree to Flipkart's <a href="{% url 'condition' %}"> Terms of Use</a> and <a href="{% url 'privacy' %}">Privacy Policy.</a></p>
+                      <center><button type="submit" class="btn btn-primary px-5">Submit</button></center>
+                      </form>
+                    <p align="center" class="mt-2">New user / Don't have an account <a href="{% url 'signup' %}">Signup</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
